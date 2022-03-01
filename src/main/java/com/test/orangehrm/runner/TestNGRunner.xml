@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="TestNG Runner Practice">
+
+    <test name="orangehrm Tests">
+        <classes>
+            <class name="com.test.orangehrm.tests.LoginTest"> </class>
+            <class name="com.test.orangehrm.tests.AdminTest"> </class>
+            <class name="com.test.orangehrm.tests.PIMTest"> </class>
+        </classes>
+    </test>
+    <test name="Select Class Tests">
+        <classes>
+            <class name="selectClass.DreamCars"></class>
+            <class name="selectClass.SelectBasics"></class>
+        </classes>
+    </test>
+
+</suite>
