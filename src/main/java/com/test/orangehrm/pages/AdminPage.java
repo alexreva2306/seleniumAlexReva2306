@@ -40,16 +40,23 @@ public class AdminPage {
 
     @FindBy(xpath = "//tr//a[contains(@href,'saveSystemUser')]")
     List<WebElement> allNames;
+    @FindBy(id = "searchSystemUser_userType")
+    WebElement userRoleBox;
+    @FindBy(id = "searchBtn")
+    WebElement searchBox;
+    @FindBy(xpath = "//td[3]")
+    List<WebElement> allTheRolesOnTheTable;
 
     public void sendingAllInformationForEmployee() throws InterruptedException {
         addButton.click();
         BrowserUtils.selectBy(userRoles,"Admin","text");
         employeeName.sendKeys("Alice Duval");
-        userName.sendKeys("ahmetNewAhmet13");
+        userName.sendKeys("AreoMilk6");
         BrowserUtils.selectBy(status,"0","value");
-        password.sendKeys("ahmet12345");
-        confirmPassword.sendKeys("ahmet12345");Thread.sleep(1000);
+        password.sendKeys("pendragon.S23");
+        confirmPassword.sendKeys("pendragon.S23");Thread.sleep(2000);
         saveButton.click();Thread.sleep(1000);
+
     }
     public boolean ValidationTheEmployeeIsCreated(String userName){
         for (WebElement name : allNames){
@@ -58,5 +65,18 @@ public class AdminPage {
             }
         }
         return false;
+    }
+    public void selectUserRole(String roleName,WebDriver driver){
+        BrowserUtils.selectBy(userRoleBox,roleName,"text");
+        BrowserUtils.ClickWithJS(driver,searchBox);
+    }
+
+    public boolean validateRoleText(String roleName){
+        for(WebElement role:allTheRolesOnTheTable){
+            if(!role.getText().trim().equals(roleName)){
+                return false;
+            }
+        }
+        return true;
     }
 }
