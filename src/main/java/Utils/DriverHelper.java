@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class DriverHelper {
     //private variable
     private static WebDriver driver;
-    //Pvivate constructor to make sure they do not create an object
+    //Private constructor to make sure they do not create an object
     //from this class
     private DriverHelper(){}
 
